@@ -28,12 +28,6 @@ To deploy this website on Netlify:
 4. Set the publish directory to the root of the project.
 5. Click "Deploy site".
 
-## Contact Information
-
-For any inquiries or support, please contact:
-
-- **Email:** leonard1969gana@gmail.com
-
 ## Acknowledgments
 
 Thank you for considering DMV Moves & Trims for your moving and landscaping needs. We pride ourselves on being available 24/7, reliable, and professional.
