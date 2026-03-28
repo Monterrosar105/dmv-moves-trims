@@ -1,0 +1,202 @@
+:root{
+  --green-700:#1f7a3a;
+  --green-500:#2f9a4f;
+  --muted:#6b6b6b;
+  --bg:#fbfdfb;
+  --card:#f4fbf6;
+  --container:1100px;
+  --radius:12px;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:#0b2b1a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  font-size:16px;
+}
+
+.container{max-width:var(--container);margin:0 auto;padding:0 20px}
+
+/* Header */
+.site-header{
+  background:#fff;
+  padding:8px 0; /* reduced height */
+  box-shadow:0 4px 18px rgba(11,43,26,0.03);
+  position:sticky;top:0;z-index:60;
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{display:flex;gap:12px;align-items:center;text-decoration:none;color:inherit}
+
+/* ensure the brand text stacks: title above the small subtitle */
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  line-height:1;
+}
+.brand-text strong{font-size:22px;line-height:1;color:var(--green-700)}
+.brand-text small{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:6px; /* space below the title */
+  display:block;
+}
+.main-nav a{margin-left:22px;color:var(--green-900);text-decoration:none;font-weight:700;font-size:16px;padding:6px 8px;border-radius:6px}
+
+/* Hero */
+.hero{position:relative;min-height:420px;display:flex;align-items:center}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg, rgba(11,43,26,0.72) 0%, rgba(11,43,26,0.18) 60%);backdrop-filter:contrast(1.02)}
+.hero-content{
+  position:relative;
+  color:#fff;
+  padding:80px 20px;
+  max-width:760px;
+  margin-left:20%; /* shift hero content left (not centered) */
+}
+/* smaller offset on narrower screens */
+@media (max-width:1000px){
+  .hero-content{ margin-left:28px; padding:40px 20px }
+}
+@media (max-width:520px){
+  .hero-content{ margin-left:18px; padding:28px 16px }
+}
+
+.hero-ctas{display:flex;gap:12px}
+.btn{display:inline-block;padding:10px 18px;border-radius:999px;text-decoration:none;font-weight:600}
+.btn-primary{background:var(--green-500);color:#fff;border:1px solid rgba(0,0,0,0.04)}
+.btn-outline{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.6)}
+
+/* Sections */
+.section{padding:56px 0}
+.eyebrow{color:var(--green-700);font-weight:700;text-transform:uppercase;font-size:13px;margin-bottom:8px}
+h2{font-size:28px;margin:0 0 18px}
+
+/* Services grid */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:26px;
+  margin-top:28px;
+  align-items:stretch; /* ensure grid tracks stretch so items match height */
+}
+
+/* make each service card stretch to fill its grid cell and keep consistent sizing */
+.service-card,
+.card{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+
+/* push checklist to bottom so cards appear balanced when content length differs */
+.card .checklist{
+  margin-top:auto;
+}
+
+/* optional: set a sensible minimum height for visual balance */
+.card{
+  min-height:320px;
+}
+
+/* Elevated, higher-contrast cards for "What We Do" */
+.card{
+  background:#ffffff; /* stronger contrast vs page background */
+  padding:28px 30px;
+  border-radius:14px;
+  box-shadow:0 14px 36px rgba(11,43,26,0.08);
+  border:1px solid rgba(11,43,26,0.06);
+  color:var(--green-900);
+}
+.card h3{margin:8px 0 8px;font-size:18px;color:var(--green-700)}
+.card p{color:#2f4f3a;margin:0 0 12px} /* darker copy color for readability */
+.card .card-icon{
+  width:56px;height:56px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:10px;background:linear-gradient(180deg,#eaf7ee,#dff4e6)
+}
+.card .card-icon .icon-img{
+  width:36px;height:36px;object-fit:contain;display:block;
+}
+.checklist{padding-left:18px;margin:10px 0 0;color:var(--green-900)} /* make list items more readable */
+.checklist li{margin:8px 0;position:relative;padding-left:18px}
+.checklist li::before{
+  content:"✔";
+  position:absolute;left:0;top:0;color:var(--green-600);font-size:13px;
+}
+
+/* About */
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+  align-items:stretch; /* ensure both columns match height */
+}
+
+/* make media image fill its grid cell height */
+.about-media{height:100%}
+.about-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:12px;
+  display:block;
+}
+
+/* make about content stretch to match image height */
+.about-content{
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  gap:12px;
+  height:100%;
+  background:linear-gradient(180deg,#f7fff9,#eaf7ee);
+  padding:28px;
+  border-radius:12px;
+  border:1px solid rgba(31,122,58,0.06);
+}
+
+/* feature list: add inline icons and spacing */
+.features{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:12px}
+.features li{display:flex;align-items:center;gap:12px}
+.feature-icon{width:28px;height:28px;object-fit:contain;flex:0 0 28px}
+.features li strong{font-size:15px}
+.features li span{font-size:13px;color:var(--muted)}
+
+/* Contact */
+.contact-card{background:linear-gradient(180deg, #13321b 0%, #183a1f 100%);color:#fff;padding:36px;border-radius:12px;text-align:center}
+.contact-card h2{font-size:26px;margin:0 0 8px}
+.contact-card .sub{color:#bfe6c5;margin-bottom:18px}
+.contact-ctas{display:flex;gap:12px;justify-content:center;margin-bottom:12px}
+.btn-outline.disabled{border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.9);opacity:0.8;pointer-events:none}
+
+/* Footer */
+.site-footer{padding:18px 0;background:#fff;border-top:1px solid #e9f0ea;color:var(--muted);text-align:center}
+.footer-inner{display:flex;justify-content:center}
+
+/* Responsive */
+@media (max-width:900px){
+  .services-grid{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .hero h1{font-size:32px}
+  .hero{min-height:520px}
+  .header-inner{padding:0 8px}
+  .main-nav{display:none}
+}
+
+/* Bigger logo and title */
+.brand svg{width:64px;height:64px;flex:0 0 64px}
+.brand-text strong{font-size:22px;line-height:1;color:var(--green-700)}
+.brand-text small{font-size:13px}
+
+/* responsive adjustments */
+@media (max-width:520px){
+  .brand svg{width:46px;height:46px;flex:0 0 46px}
+  .brand-text strong{font-size:18px}
+  .brand-text small{font-size:12px}
+  .main-nav a{font-size:15px}
+}

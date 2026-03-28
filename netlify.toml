@@ -1,0 +1,11 @@
+# This file contains configuration settings for deploying the site on Netlify.
+
+[build]
+  publish = "."
+  command = ""
+
+[redirects]
+  # Redirects can be added here if needed
+
+[headers]
+  # Custom headers can be added here if needed
